@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flydsl-rocprof-cli"
+version = "0.1.0"
+description = "Agent-drivable rocprofv3 kernel-profiling CLI for FlyDSL on AMD CDNA (gfx950/MI350X): capture -> tile -> roofline -> bubble taxonomy -> ISA<->Python map -> optimization report."
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{ name = "Jinn Pan", email = "panjin1221@gmail.com" }]
+dependencies = ["pyyaml>=5.3"]
+
+[project.scripts]
+flyprof = "flyprof.cli:main"
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[tool.setuptools.packages.find]
+include = ["flyprof*"]
+
+[tool.black]
+line-length = 120
+
+[tool.ruff]
+line-length = 120

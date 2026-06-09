@@ -1,0 +1,13 @@
+# build / install
+*.egg-info/
+build/
+dist/
+__pycache__/
+*.pyc
+
+# default bundle output (artifacts live in the hub repo, not here)
+/runs/
+
+# scratch
+.flydsl_trace_cache/
+*.log

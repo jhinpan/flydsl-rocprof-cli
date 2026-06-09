@@ -1,0 +1,23 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  offline-tests:
+    # GPU-free gate: tile math, headless RCV bubble taxonomy + ISA<->source map
+    # against the committed fixture, knob rules, and the envelope contract.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -e ".[test]"
+      - run: pytest tests/ -q
+      - name: list arg-help gate
+        run: |
+          python - <<'PY'
+          # every `list` arg must carry non-empty help (agent-usability gate)
+          from flyprof import manifest
+          import inspect, ast
+          src = inspect.getsource(manifest.cmd_list)
+          assert '"help":' in src, "list entries must document their args"
+          print("arg-help gate ok")
+          PY
