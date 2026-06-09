@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="680" viewBox="0 0 1180 680" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif">
+<defs>
+<marker id="ar" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,3 L0,6 Z" fill="#5b6b7b"/></marker>
+<marker id="arb" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
+<marker id="arp" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,3 L0,6 Z" fill="#7c3aed"/></marker>
+<marker id="arg" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,3 L0,6 Z" fill="#c2670a"/></marker>
+</defs>
+<rect x="0" y="0" width="1180" height="680" fill="#ffffff"/>
+<text x="590.0" y="38.0" font-size="23" fill="#1f2933" font-weight="700" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">Internal architecture</text>
+<text x="590.0" y="62.0" font-size="13.5" fill="#5b6b7b" font-weight="400" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">generic core (any rocprofv3 ATT trace) + a FlyDSL-specific layer; GPU-free except capture/counters</text>
+<rect x="36" y="82" width="1108" height="64" rx="12" fill="#fbfcfe" stroke="#e2e8f0" stroke-width="1.4"/>
+<text x="50.0" y="102.0" font-size="12.5" fill="#5b6b7b" font-weight="700" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">AGENT SURFACE</text>
+<text x="50.0" y="118.0" font-size="10.5" fill="#94a3b8" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">drive it, don&#x27;t read source</text>
+<rect x="186.0" y="94.0" width="465.5" height="40.0" rx="9" fill="#f3eafc" stroke="#7c3aed" stroke-width="1.6"/>
+<text x="418.8" y="118.2" font-size="12.5" fill="#6d28d9" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">skills/ — usage·capture·analyze·report·triage</text>
+<rect x="663.5" y="94.0" width="465.5" height="40.0" rx="9" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.6"/>
+<text x="896.2" y="118.2" font-size="12.5" fill="#334155" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">flyprof CLI (console script)</text>
+<rect x="36" y="166" width="1108" height="64" rx="12" fill="#fbfcfe" stroke="#e2e8f0" stroke-width="1.4"/>
+<text x="50.0" y="186.0" font-size="12.5" fill="#5b6b7b" font-weight="700" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">CONTRACT</text>
+<text x="50.0" y="202.0" font-size="10.5" fill="#94a3b8" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">envelope.py</text>
+<rect x="186.0" y="178.0" width="306.3" height="40.0" rx="9" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.6"/>
+<text x="339.2" y="202.2" font-size="12.5" fill="#334155" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">cli.py — argparse dispatch</text>
+<rect x="504.3" y="178.0" width="306.3" height="40.0" rx="9" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.6"/>
+<text x="657.5" y="202.2" font-size="12.5" fill="#334155" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">envelope.py — ok/error + exit codes</text>
+<rect x="822.7" y="178.0" width="306.3" height="40.0" rx="9" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.6"/>
+<text x="975.8" y="202.2" font-size="12.5" fill="#334155" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">config.py — Config + bundle handle</text>
+<rect x="36" y="250" width="1108" height="64" rx="12" fill="#fbfcfe" stroke="#e2e8f0" stroke-width="1.4"/>
+<text x="50.0" y="270.0" font-size="12.5" fill="#5b6b7b" font-weight="700" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">COMMANDS</text>
+<text x="50.0" y="286.0" font-size="10.5" fill="#94a3b8" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">10 handlers</text>
+<rect x="186.0" y="262.0" width="83.5" height="40.0" rx="9" fill="#eef1f4" stroke="#64748b" stroke-width="1.6"/>
+<text x="227.8" y="286.1" font-size="12" fill="#44505e" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">list</text>
+<rect x="281.5" y="262.0" width="83.5" height="40.0" rx="9" fill="#eef1f4" stroke="#64748b" stroke-width="1.6"/>
+<text x="323.2" y="286.1" font-size="12" fill="#44505e" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">doctor</text>
+<rect x="377.0" y="262.0" width="83.5" height="40.0" rx="9" fill="#e6f4f1" stroke="#0f766e" stroke-width="1.6"/>
+<text x="418.8" y="286.1" font-size="12" fill="#0b5750" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">tile</text>
+<rect x="472.5" y="262.0" width="83.5" height="40.0" rx="9" fill="#fde7d6" stroke="#c2670a" stroke-width="1.6"/>
+<text x="514.2" y="286.1" font-size="12" fill="#8f4e07" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">capture</text>
+<rect x="568.0" y="262.0" width="83.5" height="40.0" rx="9" fill="#fde7d6" stroke="#c2670a" stroke-width="1.6"/>
+<text x="609.8" y="286.1" font-size="12" fill="#8f4e07" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">counters</text>
+<rect x="663.5" y="262.0" width="83.5" height="40.0" rx="9" fill="#e6f4f1" stroke="#0f766e" stroke-width="1.6"/>
+<text x="705.2" y="286.1" font-size="12" fill="#0b5750" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">bubbles</text>
+<rect x="759.0" y="262.0" width="83.5" height="40.0" rx="9" fill="#e6f4f1" stroke="#0f766e" stroke-width="1.6"/>
+<text x="800.8" y="286.1" font-size="12" fill="#0b5750" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">map</text>
+<rect x="854.5" y="262.0" width="83.5" height="40.0" rx="9" fill="#e6f4f1" stroke="#0f766e" stroke-width="1.6"/>
+<text x="896.2" y="286.1" font-size="12" fill="#0b5750" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">report</text>
+<rect x="950.0" y="262.0" width="83.5" height="40.0" rx="9" fill="#e6f4f1" stroke="#0f766e" stroke-width="1.6"/>
+<text x="991.8" y="286.1" font-size="12" fill="#0b5750" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">bundle</text>
+<rect x="1045.5" y="262.0" width="83.5" height="40.0" rx="9" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.6"/>
+<text x="1087.2" y="286.1" font-size="12" fill="#334155" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">run</text>
+<rect x="36" y="334" width="1108" height="110" rx="12" fill="#fbfcfe" stroke="#e2e8f0" stroke-width="1.4"/>
+<text x="50.0" y="354.0" font-size="12.5" fill="#5b6b7b" font-weight="700" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">ENGINES</text>
+<text x="50.0" y="370.0" font-size="10.5" fill="#94a3b8" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">the logic</text>
+<rect x="186.0" y="348.0" width="179.0" height="38.0" rx="9" fill="#e6f4f1" stroke="#0f766e" stroke-width="1.6"/>
+<text x="275.5" y="371.1" font-size="12" fill="#0b5750" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">rcv — bubbles + map</text>
+<rect x="377.0" y="348.0" width="179.0" height="38.0" rx="9" fill="#e6f4f1" stroke="#0f766e" stroke-width="1.6"/>
+<text x="466.5" y="371.1" font-size="12" fill="#0b5750" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">tile — roofline</text>
+<rect x="568.0" y="348.0" width="179.0" height="38.0" rx="9" fill="#f3eafc" stroke="#7c3aed" stroke-width="1.6"/>
+<text x="657.5" y="371.1" font-size="12" fill="#6d28d9" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">knobs ★ bubble→knob</text>
+<rect x="759.0" y="348.0" width="179.0" height="38.0" rx="9" fill="#e6f4f1" stroke="#0f766e" stroke-width="1.6"/>
+<text x="848.5" y="371.1" font-size="12" fill="#0b5750" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">soc — gfx950</text>
+<rect x="950.0" y="348.0" width="179.0" height="38.0" rx="9" fill="#e6f4f1" stroke="#0f766e" stroke-width="1.6"/>
+<text x="1039.5" y="371.1" font-size="12" fill="#0b5750" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">report — synth</text>
+<rect x="186.0" y="396.0" width="306.3" height="38.0" rx="9" fill="#fde7d6" stroke="#c2670a" stroke-width="1.6"/>
+<text x="339.2" y="419.1" font-size="12" fill="#8f4e07" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">capture — rocprofv3 ATT (vendored)</text>
+<rect x="504.3" y="396.0" width="306.3" height="38.0" rx="9" fill="#fde7d6" stroke="#c2670a" stroke-width="1.6"/>
+<text x="657.5" y="419.1" font-size="12" fill="#8f4e07" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">counters — rocprofv3 PMC</text>
+<rect x="822.7" y="396.0" width="306.3" height="38.0" rx="9" fill="#e6f4f1" stroke="#0f766e" stroke-width="1.6"/>
+<text x="975.8" y="419.1" font-size="12" fill="#0b5750" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">manifest — recipes</text>
+<rect x="36" y="456" width="1108" height="96" rx="12" fill="#fbfcfe" stroke="#e2e8f0" stroke-width="1.4"/>
+<text x="50.0" y="476.0" font-size="12.5" fill="#5b6b7b" font-weight="700" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">VENDORED + EXTERNAL</text>
+<rect x="186.0" y="472.0" width="226.8" height="40.0" rx="9" fill="#e6f4f1" stroke="#0f766e" stroke-width="1.6"/>
+<text x="299.4" y="496.1" font-size="12" fill="#0b5750" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">_vendor/hotspot — VGPR/occ</text>
+<rect x="424.8" y="472.0" width="226.8" height="40.0" rx="9" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="538.1" y="496.1" font-size="12" fill="#5b6b7b" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">rocprofv3 (rocm)</text>
+<rect x="663.5" y="472.0" width="226.8" height="40.0" rx="9" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="776.9" y="496.1" font-size="12" fill="#5b6b7b" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">FlyDSL worktree</text>
+<rect x="902.2" y="472.0" width="226.8" height="40.0" rx="9" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="1015.6" y="496.1" font-size="12" fill="#5b6b7b" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">gfx950 / MI350X</text>
+<line x1="590.0" y1="146.0" x2="590.0" y2="164.0" stroke="#5b6b7b" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="590.0" y1="230.0" x2="590.0" y2="248.0" stroke="#5b6b7b" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="590.0" y1="314.0" x2="590.0" y2="332.0" stroke="#5b6b7b" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="590.0" y1="444.0" x2="590.0" y2="454.0" stroke="#5b6b7b" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="36" y="600" width="1108" height="56" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+<text x="52.0" y="622.0" font-size="11.5" fill="#0b5750" font-weight="700" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">GENERIC CORE</text>
+<text x="52.0" y="640.0" font-size="11" fill="#1f2933" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">envelope · config · rcv · tile · soc · hotspot — works on any rocprofv3 ATT trace</text>
+<text x="660.0" y="622.0" font-size="11.5" fill="#6d28d9" font-weight="700" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">FlyDSL-SPECIFIC LAYER</text>
+<text x="660.0" y="640.0" font-size="11" fill="#1f2933" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">knobs (knob vocabulary) · manifest (recipes) · capture (DWARF source map)</text>
+</svg>

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="480" viewBox="0 0 1180 480" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif">
+<defs>
+<marker id="ar" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,3 L0,6 Z" fill="#5b6b7b"/></marker>
+<marker id="arb" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
+<marker id="arp" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,3 L0,6 Z" fill="#7c3aed"/></marker>
+<marker id="arg" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,3 L0,6 Z" fill="#c2670a"/></marker>
+</defs>
+<rect x="0" y="0" width="1180" height="480" fill="#ffffff"/>
+<text x="590.0" y="38.0" font-size="23" fill="#1f2933" font-weight="700" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">What flyprof fuses</text>
+<text x="590.0" y="62.0" font-size="13.5" fill="#5b6b7b" font-weight="400" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">four ROCm/FlyDSL tools + one agent-CLI pattern, wrapped behind one workflow</text>
+<rect x="36.0" y="100.0" width="470.0" height="56.0" rx="9" fill="#fde7d6" stroke="#c2670a" stroke-width="1.6"/>
+<text x="50.0" y="123.0" font-size="14.5" fill="#8f4e07" font-weight="700" text-anchor="start" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">rocprofv3</text>
+<text x="50.0" y="141.0" font-size="10.5" fill="#8f4e07" font-weight="600" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">rocm-systems</text>
+<text x="186.0" y="133.0" font-size="11.8" fill="#1f2933" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">ATT trace + PMC counters — the raw capture engine</text>
+<rect x="36.0" y="172.0" width="470.0" height="56.0" rx="9" fill="#eef1f4" stroke="#64748b" stroke-width="1.6"/>
+<text x="50.0" y="195.0" font-size="14.5" fill="#44505e" font-weight="700" text-anchor="start" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">rocprof-compute</text>
+<text x="50.0" y="213.0" font-size="10.5" fill="#44505e" font-weight="600" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">rocm-systems</text>
+<text x="186.0" y="205.0" font-size="11.8" fill="#1f2933" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">gfx950 SoC spec → roofline &amp; tile math (soc.py)</text>
+<rect x="36.0" y="244.0" width="470.0" height="56.0" rx="9" fill="#e6f4f1" stroke="#0f766e" stroke-width="1.6"/>
+<text x="50.0" y="267.0" font-size="14.5" fill="#0b5750" font-weight="700" text-anchor="start" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">rocprof-compute-viewer</text>
+<text x="50.0" y="285.0" font-size="10.5" fill="#0b5750" font-weight="600" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">ROCm</text>
+<text x="186.0" y="277.0" font-size="11.8" fill="#1f2933" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">trace data model (code.json/wave/waitcnt) — replicated headlessly</text>
+<rect x="36.0" y="316.0" width="470.0" height="56.0" rx="9" fill="#e9f1fc" stroke="#2563eb" stroke-width="1.6"/>
+<text x="50.0" y="339.0" font-size="14.5" fill="#1d4ed8" font-weight="700" text-anchor="start" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">flydsl-kernel-profiling</text>
+<text x="50.0" y="357.0" font-size="10.5" fill="#1d4ed8" font-weight="600" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">the hub</text>
+<text x="186.0" y="349.0" font-size="11.8" fill="#1f2933" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">ATT capture harness + bundle layout — vendored</text>
+<rect x="36.0" y="388.0" width="470.0" height="56.0" rx="9" fill="#f3eafc" stroke="#7c3aed" stroke-width="1.6"/>
+<text x="50.0" y="411.0" font-size="14.5" fill="#6d28d9" font-weight="700" text-anchor="start" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">opencli</text>
+<text x="50.0" y="429.0" font-size="10.5" fill="#6d28d9" font-weight="600" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">pattern only</text>
+<text x="186.0" y="421.0" font-size="11.8" fill="#1f2933" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">deterministic CLI + companion-skill philosophy (not its code)</text>
+<rect x="640.0" y="210.0" width="230.0" height="130.0" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2.2"/>
+<rect x="640" y="210" width="230" height="6" rx="3" fill="#7c3aed"/>
+<text x="755.0" y="250.0" font-size="26" fill="#1f2933" font-weight="800" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">flyprof</text>
+<text x="755.0" y="274.0" font-size="12.5" fill="#5b6b7b" font-weight="400" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">one deterministic CLI</text>
+<text x="755.0" y="294.0" font-size="12.5" fill="#5b6b7b" font-weight="400" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">+ companion skills</text>
+<text x="755.0" y="320.0" font-size="11.5" fill="#6d28d9" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">capture → analyze → report</text>
+<path d="M 510 128.0 C 573.0 128.0, 573.0 275.0, 636 275.0" fill="none" stroke="#5b6b7b" stroke-width="1.5" marker-end="url(#ar)"/>
+<path d="M 510 200.0 C 573.0 200.0, 573.0 275.0, 636 275.0" fill="none" stroke="#5b6b7b" stroke-width="1.5" marker-end="url(#ar)"/>
+<path d="M 510 272.0 C 573.0 272.0, 573.0 275.0, 636 275.0" fill="none" stroke="#5b6b7b" stroke-width="1.5" marker-end="url(#ar)"/>
+<path d="M 510 344.0 C 573.0 344.0, 573.0 275.0, 636 275.0" fill="none" stroke="#5b6b7b" stroke-width="1.5" marker-end="url(#ar)"/>
+<path d="M 510 416.0 C 573.0 416.0, 573.0 275.0, 636 275.0" fill="none" stroke="#5b6b7b" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="630.0" y="86.0" width="250.0" height="30.0" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="4 3"/>
+<text x="755.0" y="105.0" font-size="11" fill="#5b6b7b" font-weight="400" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">runtime: gfx950 / MI350X  ·  FlyDSL worktree (kernels/*.py + build tree)</text>
+<line x1="755.0" y1="116.0" x2="755.0" y2="207.0" stroke="#5b6b7b" stroke-width="1.4" marker-end="url(#ar)"/>
+<rect x="894.0" y="150.0" width="250.0" height="50.0" rx="9" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.6"/>
+<text x="1019.0" y="173.0" font-size="14" fill="#854d0e" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">REPORT.md</text>
+<text x="1019.0" y="188.0" font-size="10.5" fill="#854d0e" font-weight="400" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">ranked bubble→knob recs</text>
+<line x1="873.0" y1="275.0" x2="891.0" y2="175.0" stroke="#ca8a04" stroke-width="1.4" marker-end="url(#arg)"/>
+<rect x="894.0" y="216.0" width="250.0" height="50.0" rx="9" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.6"/>
+<text x="1019.0" y="239.0" font-size="14" fill="#854d0e" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">report.json</text>
+<text x="1019.0" y="254.0" font-size="10.5" fill="#854d0e" font-weight="400" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">machine-readable, same data</text>
+<line x1="873.0" y1="275.0" x2="891.0" y2="241.0" stroke="#ca8a04" stroke-width="1.4" marker-end="url(#arg)"/>
+<rect x="894.0" y="282.0" width="250.0" height="50.0" rx="9" fill="#e9f1fc" stroke="#2563eb" stroke-width="1.6"/>
+<text x="1019.0" y="305.0" font-size="14" fill="#1d4ed8" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">examples/&lt;k&gt;/</text>
+<text x="1019.0" y="320.0" font-size="10.5" fill="#1d4ed8" font-weight="400" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">canonical bundle for the hub</text>
+<line x1="873.0" y1="275.0" x2="891.0" y2="307.0" stroke="#2563eb" stroke-width="1.4" marker-end="url(#arb)"/>
+</svg>

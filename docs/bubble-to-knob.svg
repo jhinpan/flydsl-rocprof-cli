@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="470" viewBox="0 0 1200 470" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif">
+<defs>
+<marker id="ar" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,3 L0,6 Z" fill="#5b6b7b"/></marker>
+<marker id="arb" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
+<marker id="arp" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,3 L0,6 Z" fill="#7c3aed"/></marker>
+<marker id="arg" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,3 L0,6 Z" fill="#c2670a"/></marker>
+</defs>
+<rect x="0" y="0" width="1200" height="470" fill="#ffffff"/>
+<text x="600.0" y="38.0" font-size="23" fill="#1f2933" font-weight="700" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">How a stall becomes a recommendation</text>
+<text x="600.0" y="62.0" font-size="13.5" fill="#5b6b7b" font-weight="400" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">the core IP (knobs.py): reliable signals → bound-gated rules → ranked recs, each traceable to a .py line</text>
+<text x="36.0" y="96.0" font-size="11.5" fill="#5b6b7b" font-weight="700" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">EVIDENCE (from the bundle)</text>
+<rect x="36.0" y="116.0" width="250.0" height="60.0" rx="9" fill="#e6f4f1" stroke="#0f766e" stroke-width="1.6"/>
+<text x="50.0" y="140.0" font-size="14" fill="#0b5750" font-weight="700" text-anchor="start" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">code.json</text>
+<text x="50.0" y="160.0" font-size="10.3" fill="#1f2933" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">per-line stall cycles (c8) by ISA class — the taxonomy</text>
+<rect x="36.0" y="194.0" width="250.0" height="60.0" rx="9" fill="#e6f4f1" stroke="#0f766e" stroke-width="1.6"/>
+<text x="50.0" y="218.0" font-size="14" fill="#0b5750" font-weight="700" text-anchor="start" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">wave.waitcnt</text>
+<text x="50.0" y="238.0" font-size="10.3" fill="#1f2933" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">dep edges: each s_waitcnt → the load it waits on</text>
+<rect x="36.0" y="272.0" width="250.0" height="60.0" rx="9" fill="#fde7d6" stroke="#c2670a" stroke-width="1.6"/>
+<text x="50.0" y="296.0" font-size="14" fill="#8f4e07" font-weight="700" text-anchor="start" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">PMC counters</text>
+<text x="50.0" y="316.0" font-size="10.3" fill="#1f2933" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">ratios: L2 hit · 32B · MFMA-frac (abs BW uncalib.)</text>
+<rect x="356.0" y="150.0" width="180.0" height="200.0" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.8"/>
+<text x="446.0" y="184.0" font-size="14" fill="#1f2933" font-weight="700" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">build_signals</text>
+<text x="446.0" y="206.0" font-size="11" fill="#5b6b7b" font-weight="400" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">normalize +</text>
+<text x="446.0" y="221.0" font-size="11" fill="#5b6b7b" font-weight="400" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">attach source</text>
+<text x="446.0" y="250.0" font-size="11.5" fill="#6d28d9" font-weight="700" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">bound:</text>
+<text x="446.0" y="268.0" font-size="11" fill="#6d28d9" font-weight="400" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">memory /</text>
+<text x="446.0" y="283.0" font-size="11" fill="#6d28d9" font-weight="400" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">compute /</text>
+<text x="446.0" y="298.0" font-size="11" fill="#6d28d9" font-weight="400" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">latency</text>
+<path d="M 289 146 C 321.0 146, 321.0 250.0, 353 250.0" fill="none" stroke="#5b6b7b" stroke-width="1.5" marker-end="url(#ar)"/>
+<path d="M 289 224 C 321.0 224, 321.0 250.0, 353 250.0" fill="none" stroke="#5b6b7b" stroke-width="1.5" marker-end="url(#ar)"/>
+<path d="M 289 302 C 321.0 302, 321.0 250.0, 353 250.0" fill="none" stroke="#5b6b7b" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="600.0" y="150.0" width="210.0" height="200.0" rx="12" fill="#f3eafc" stroke="#7c3aed" stroke-width="2.2"/>
+<text x="705.0" y="180.0" font-size="15" fill="#6d28d9" font-weight="800" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">knobs.RULES</text>
+<text x="705.0" y="200.0" font-size="10.5" fill="#6d28d9" font-weight="400" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">bound-gated rules engine</text>
+<text x="614.0" y="226.0" font-size="10.3" fill="#4c1d95" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">• vmcnt → prefetch / double-buffer</text>
+<text x="614.0" y="245.0" font-size="10.3" fill="#4c1d95" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">• lgkmcnt → LDS write→read dist</text>
+<text x="614.0" y="264.0" font-size="10.3" fill="#4c1d95" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">• lds → XOR swizzle</text>
+<text x="614.0" y="283.0" font-size="10.3" fill="#4c1d95" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">• mfma → sched_mfma / wider-K</text>
+<text x="614.0" y="302.0" font-size="10.3" fill="#4c1d95" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">• occupancy → async-copy</text>
+<text x="614.0" y="321.0" font-size="10.3" fill="#4c1d95" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">• 32B → widen copy width</text>
+<line x1="539.0" y1="250.0" x2="597.0" y2="250.0" stroke="#7c3aed" stroke-width="1.7" marker-end="url(#arp)"/>
+<text x="874.0" y="96.0" font-size="11.5" fill="#5b6b7b" font-weight="700" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">RANKED RECOMMENDATIONS</text>
+<rect x="874.0" y="116.0" width="260.0" height="54.0" rx="9" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.6"/>
+<text x="886.0" y="138.0" font-size="13" fill="#854d0e" font-weight="700" text-anchor="start" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">#1 vmcnt</text>
+<text x="974.0" y="138.0" font-size="11.3" fill="#1f2933" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">prefetch the global loads</text>
+<text x="886.0" y="157.0" font-size="10.2" fill="#6d28d9" font-weight="600" text-anchor="start" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">evidence → softmax_kernel.py:43</text>
+<rect x="874.0" y="182.0" width="260.0" height="54.0" rx="9" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.6"/>
+<text x="886.0" y="204.0" font-size="13" fill="#854d0e" font-weight="700" text-anchor="start" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">#2 vmcnt</text>
+<text x="974.0" y="204.0" font-size="11.3" fill="#1f2933" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">layout / L2 reuse</text>
+<text x="886.0" y="223.0" font-size="10.2" fill="#6d28d9" font-weight="600" text-anchor="start" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">evidence → softmax_kernel.py:43</text>
+<rect x="874.0" y="248.0" width="260.0" height="54.0" rx="9" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.6"/>
+<text x="886.0" y="270.0" font-size="13" fill="#854d0e" font-weight="700" text-anchor="start" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">#3 barrier</text>
+<text x="974.0" y="270.0" font-size="11.3" fill="#1f2933" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">relax sync</text>
+<text x="886.0" y="289.0" font-size="10.2" fill="#6d28d9" font-weight="600" text-anchor="start" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">evidence → softmax_kernel.py:43</text>
+<line x1="813.0" y1="250.0" x2="871.0" y2="250.0" stroke="#ca8a04" stroke-width="1.7" marker-end="url(#arg)"/>
+<rect x="36" y="404" width="1128" height="40" rx="9" fill="#f3eafc" stroke="#7c3aed" stroke-width="1.4"/>
+<text x="600.0" y="429.0" font-size="12" fill="#6d28d9" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">every recommendation carries its firing signal + the .py:line the bubble maps to — so the claim is auditable back to the ISA</text>
+</svg>

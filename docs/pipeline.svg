@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="565" viewBox="0 0 1280 565" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif">
+<defs>
+<marker id="ar" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,3 L0,6 Z" fill="#5b6b7b"/></marker>
+<marker id="arb" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/></marker>
+<marker id="arp" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,3 L0,6 Z" fill="#7c3aed"/></marker>
+<marker id="arg" markerWidth="9" markerHeight="9" refX="7.5" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,3 L0,6 Z" fill="#c2670a"/></marker>
+</defs>
+<rect x="0" y="0" width="1280" height="565" fill="#ffffff"/>
+<text x="640.0" y="38.0" font-size="23" fill="#1f2933" font-weight="700" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">flyprof — the fixed workflow</text>
+<text x="640.0" y="62.0" font-size="13.5" fill="#5b6b7b" font-weight="400" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">one JSON envelope per command · state flows through the bundle dir · each command writes one artifact, later commands read it</text>
+<rect x="40.0" y="100.0" width="120.9" height="50.0" rx="9" fill="#eef1f4" stroke="#64748b" stroke-width="1.6"/>
+<text x="100.4" y="123.0" font-size="15" fill="#44505e" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">list</text>
+<text x="100.4" y="138.0" font-size="10.5" fill="#44505e" font-weight="400" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">kernels</text>
+<line x1="161.9" y1="125.0" x2="173.9" y2="125.0" stroke="#5b6b7b" stroke-width="1.7" marker-end="url(#ar)"/>
+<rect x="174.9" y="100.0" width="120.9" height="50.0" rx="9" fill="#eef1f4" stroke="#64748b" stroke-width="1.6"/>
+<text x="235.3" y="123.0" font-size="15" fill="#44505e" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">doctor</text>
+<text x="235.3" y="138.0" font-size="10.5" fill="#44505e" font-weight="400" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">preflight</text>
+<line x1="296.8" y1="125.0" x2="308.8" y2="125.0" stroke="#5b6b7b" stroke-width="1.7" marker-end="url(#ar)"/>
+<rect x="309.8" y="100.0" width="120.9" height="50.0" rx="9" fill="#e6f4f1" stroke="#0f766e" stroke-width="1.6"/>
+<text x="370.2" y="123.0" font-size="15" fill="#0b5750" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">tile</text>
+<text x="370.2" y="138.0" font-size="10.5" fill="#0b5750" font-weight="400" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">GPU-free</text>
+<line x1="431.7" y1="125.0" x2="443.7" y2="125.0" stroke="#5b6b7b" stroke-width="1.7" marker-end="url(#ar)"/>
+<rect x="444.7" y="100.0" width="120.9" height="50.0" rx="9" fill="#fde7d6" stroke="#c2670a" stroke-width="1.6"/>
+<text x="505.1" y="123.0" font-size="15" fill="#8f4e07" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">capture</text>
+<text x="505.1" y="138.0" font-size="10.5" fill="#8f4e07" font-weight="400" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">rocprofv3 ATT</text>
+<line x1="566.6" y1="125.0" x2="578.6" y2="125.0" stroke="#5b6b7b" stroke-width="1.7" marker-end="url(#ar)"/>
+<rect x="579.6" y="100.0" width="120.9" height="50.0" rx="9" fill="#fde7d6" stroke="#c2670a" stroke-width="1.6"/>
+<text x="640.0" y="123.0" font-size="15" fill="#8f4e07" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">counters</text>
+<text x="640.0" y="138.0" font-size="10.5" fill="#8f4e07" font-weight="400" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">rocprofv3 PMC</text>
+<line x1="701.4" y1="125.0" x2="713.4" y2="125.0" stroke="#5b6b7b" stroke-width="1.7" marker-end="url(#ar)"/>
+<rect x="714.4" y="100.0" width="120.9" height="50.0" rx="9" fill="#e6f4f1" stroke="#0f766e" stroke-width="1.6"/>
+<text x="774.9" y="123.0" font-size="15" fill="#0b5750" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">bubbles</text>
+<text x="774.9" y="138.0" font-size="10.5" fill="#0b5750" font-weight="400" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">GPU-free</text>
+<line x1="836.3" y1="125.0" x2="848.3" y2="125.0" stroke="#5b6b7b" stroke-width="1.7" marker-end="url(#ar)"/>
+<rect x="849.3" y="100.0" width="120.9" height="50.0" rx="9" fill="#e6f4f1" stroke="#0f766e" stroke-width="1.6"/>
+<text x="909.8" y="123.0" font-size="15" fill="#0b5750" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">map</text>
+<text x="909.8" y="138.0" font-size="10.5" fill="#0b5750" font-weight="400" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">GPU-free</text>
+<line x1="971.2" y1="125.0" x2="983.2" y2="125.0" stroke="#5b6b7b" stroke-width="1.7" marker-end="url(#ar)"/>
+<rect x="984.2" y="100.0" width="120.9" height="50.0" rx="9" fill="#e6f4f1" stroke="#0f766e" stroke-width="1.6"/>
+<text x="1044.7" y="123.0" font-size="15" fill="#0b5750" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">report</text>
+<text x="1044.7" y="138.0" font-size="10.5" fill="#0b5750" font-weight="400" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">GPU-free</text>
+<line x1="1106.1" y1="125.0" x2="1118.1" y2="125.0" stroke="#5b6b7b" stroke-width="1.7" marker-end="url(#ar)"/>
+<rect x="1119.1" y="100.0" width="120.9" height="50.0" rx="9" fill="#e6f4f1" stroke="#0f766e" stroke-width="1.6"/>
+<text x="1179.6" y="123.0" font-size="15" fill="#0b5750" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">bundle</text>
+<text x="1179.6" y="138.0" font-size="10.5" fill="#0b5750" font-weight="400" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">GPU-free</text>
+<rect x="40" y="250" width="1200" height="150" rx="14" fill="#f7faff" stroke="#2563eb" stroke-width="1.4" stroke-dasharray="2 4"/>
+<text x="56.0" y="276.0" font-size="16" fill="#1d4ed8" font-weight="700" text-anchor="start" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">bundle/</text>
+<text x="140.0" y="276.0" font-size="12" fill="#5b6b7b" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">the cross-command state handle</text>
+<line x1="235.3" y1="152.0" x2="235.3" y2="294.0" stroke="#2563eb" stroke-width="1.7" marker-end="url(#arb)"/>
+<rect x="174.9" y="302.0" width="120.9" height="26.0" rx="7" fill="#e9f1fc" stroke="#2563eb" stroke-width="1.3"/>
+<text x="235.3" y="319.0" font-size="11.5" fill="#1d4ed8" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">doctor.json</text>
+<line x1="370.2" y1="152.0" x2="370.2" y2="294.0" stroke="#2563eb" stroke-width="1.7" marker-end="url(#arb)"/>
+<rect x="309.8" y="302.0" width="120.9" height="26.0" rx="7" fill="#e9f1fc" stroke="#2563eb" stroke-width="1.3"/>
+<text x="370.2" y="319.0" font-size="11.5" fill="#1d4ed8" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">tile.json</text>
+<line x1="505.1" y1="152.0" x2="505.1" y2="294.0" stroke="#2563eb" stroke-width="1.7" marker-end="url(#arb)"/>
+<rect x="444.7" y="302.0" width="120.9" height="26.0" rx="7" fill="#e9f1fc" stroke="#2563eb" stroke-width="1.3"/>
+<text x="505.1" y="319.0" font-size="11.5" fill="#1d4ed8" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">capture.json</text>
+<rect x="444.7" y="336.0" width="120.9" height="26.0" rx="7" fill="#e9f1fc" stroke="#2563eb" stroke-width="1.3"/>
+<text x="505.1" y="353.0" font-size="11.5" fill="#1d4ed8" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">att/&lt;tag&gt;/</text>
+<line x1="640.0" y1="152.0" x2="640.0" y2="294.0" stroke="#2563eb" stroke-width="1.7" marker-end="url(#arb)"/>
+<rect x="579.6" y="302.0" width="120.9" height="26.0" rx="7" fill="#e9f1fc" stroke="#2563eb" stroke-width="1.3"/>
+<text x="640.0" y="319.0" font-size="11.5" fill="#1d4ed8" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">counters.json</text>
+<rect x="579.6" y="336.0" width="120.9" height="26.0" rx="7" fill="#e9f1fc" stroke="#2563eb" stroke-width="1.3"/>
+<text x="640.0" y="353.0" font-size="11.5" fill="#1d4ed8" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">pmc/</text>
+<line x1="774.9" y1="152.0" x2="774.9" y2="294.0" stroke="#2563eb" stroke-width="1.7" marker-end="url(#arb)"/>
+<rect x="714.4" y="302.0" width="120.9" height="26.0" rx="7" fill="#e9f1fc" stroke="#2563eb" stroke-width="1.3"/>
+<text x="774.9" y="319.0" font-size="11.5" fill="#1d4ed8" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">bubbles.json</text>
+<line x1="909.8" y1="152.0" x2="909.8" y2="294.0" stroke="#2563eb" stroke-width="1.7" marker-end="url(#arb)"/>
+<rect x="849.3" y="302.0" width="120.9" height="26.0" rx="7" fill="#e9f1fc" stroke="#2563eb" stroke-width="1.3"/>
+<text x="909.8" y="319.0" font-size="11.5" fill="#1d4ed8" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">map.json</text>
+<line x1="1044.7" y1="152.0" x2="1044.7" y2="294.0" stroke="#2563eb" stroke-width="1.7" marker-end="url(#arb)"/>
+<rect x="984.2" y="302.0" width="120.9" height="26.0" rx="7" fill="#e9f1fc" stroke="#2563eb" stroke-width="1.3"/>
+<text x="1044.7" y="319.0" font-size="11.5" fill="#1d4ed8" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">REPORT.md</text>
+<rect x="984.2" y="336.0" width="120.9" height="26.0" rx="7" fill="#e9f1fc" stroke="#2563eb" stroke-width="1.3"/>
+<text x="1044.7" y="353.0" font-size="11.5" fill="#1d4ed8" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">report.json</text>
+<line x1="1179.6" y1="152.0" x2="1179.6" y2="294.0" stroke="#2563eb" stroke-width="1.7" marker-end="url(#arb)"/>
+<rect x="1119.1" y="302.0" width="120.9" height="26.0" rx="7" fill="#e9f1fc" stroke="#2563eb" stroke-width="1.3"/>
+<text x="1179.6" y="319.0" font-size="11.5" fill="#1d4ed8" font-weight="600" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">examples/&lt;k&gt;/</text>
+<path d="M 370.2 394 C 370.2 430, 1044.7 430, 1044.7 408" fill="none" stroke="#7c3aed" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#arp)"/>
+<path d="M 505.1 394 C 505.1 430, 1044.7 430, 1044.7 408" fill="none" stroke="#7c3aed" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#arp)"/>
+<path d="M 640.0 394 C 640.0 430, 1044.7 430, 1044.7 408" fill="none" stroke="#7c3aed" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#arp)"/>
+<path d="M 774.9 394 C 774.9 430, 1044.7 430, 1044.7 408" fill="none" stroke="#7c3aed" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#arp)"/>
+<path d="M 909.8 394 C 909.8 430, 1044.7 430, 1044.7 408" fill="none" stroke="#7c3aed" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#arp)"/>
+<text x="1044.7" y="452.0" font-size="11.5" fill="#6d28d9" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">report reads bubbles + counters + tile + map + capture</text>
+<text x="40.0" y="86.0" font-size="11" fill="#5b6b7b" font-weight="700" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">INPUT</text>
+<text x="88.0" y="86.0" font-size="12.5" fill="#1f2933" font-weight="400" text-anchor="start" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">flyprof run &lt;kernel&gt; --shape M,N,dtype --gpu 0</text>
+<rect x="810.0" y="470.0" width="430.0" height="66.0" rx="10" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.6"/>
+<text x="826.0" y="491.0" font-size="11" fill="#854d0e" font-weight="700" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">OUTPUT</text>
+<text x="826.0" y="510.0" font-size="13" fill="#854d0e" font-weight="700" text-anchor="start" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" letter-spacing="0">REPORT.md  +  report.json</text>
+<text x="826.0" y="527.0" font-size="11.5" fill="#854d0e" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">ranked bubble→knob recommendations, traceable to .py:line</text>
+<line x1="1044.7" y1="460.0" x2="1025.0" y2="467.0" stroke="#ca8a04" stroke-width="1.4" marker-end="url(#arg)"/>
+<rect x="40" y="543" width="16" height="14" rx="3" fill="#eef1f4" stroke="#64748b" stroke-width="1.4"/>
+<text x="63.0" y="554.0" font-size="11.5" fill="#5b6b7b" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">preflight/discovery</text>
+<rect x="208.39999999999998" y="543" width="16" height="14" rx="3" fill="#e6f4f1" stroke="#0f766e" stroke-width="1.4"/>
+<text x="231.4" y="554.0" font-size="11.5" fill="#5b6b7b" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">GPU-free transform</text>
+<rect x="370.2" y="543" width="16" height="14" rx="3" fill="#fde7d6" stroke="#c2670a" stroke-width="1.4"/>
+<text x="393.2" y="554.0" font-size="11.5" fill="#5b6b7b" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">needs GPU (rocprofv3)</text>
+<rect x="551.8" y="543" width="16" height="14" rx="3" fill="#e9f1fc" stroke="#2563eb" stroke-width="1.4"/>
+<text x="574.8" y="554.0" font-size="11.5" fill="#5b6b7b" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">bundle artifact</text>
+<line x1="693.8" y1="550" x2="719.8" y2="550" stroke="#5b6b7b" stroke-width="1.7" marker-end="url(#ar)"/>
+<text x="726.8" y="554.0" font-size="11.5" fill="#5b6b7b" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">writes</text>
+<line x1="786.4" y1="550" x2="812.4" y2="550" stroke="#5b6b7b" stroke-width="1.7" stroke-dasharray="4 3"/>
+<text x="819.4" y="554.0" font-size="11.5" fill="#5b6b7b" font-weight="400" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" letter-spacing="0">reads</text>
+</svg>
