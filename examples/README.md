@@ -11,27 +11,26 @@ rocprof-compute-viewer, or by `flyprof bubbles/map --bundle <dir>`), `compute_vi
 FlyDSL's dual-wave software-pipelined flash attention on gfx950/MI350X. Profiled with:
 
 ```bash
-flyprof run flash_attn_fwd --gpu 0 \
-  --invocation "python tests/kernels/test_flash_attn_fwd.py \
-                --batch 1 --seq_len 2048 --num_heads 16 --head_dim 128 --causal" \
-  --examples-dir examples
+flyprof run flash_attn_fwd --gpu 0 --examples-dir examples
 ```
 
-(`--invocation` pins a single shape via the test's own args — flash-attn takes its
-shape from CLI flags, not `ROCDSL_*_SHAPES`. The registry recipe was stale, so the
-kernel was discovered live and the recipe synthesized.)
+Recipe-driven: the recipe pins a representative `(1, 2048, 16, 128)` causal MHA via the
+test's own CLI args (flash-attn takes its shape from `--batch/--seq_len/...`, not
+`ROCDSL_*_SHAPES`), and discovery is an **exact match** on the gfx950 kernel. (The hub's
+recipe was stale — pointing at a renamed test file — and was repaired in
+[flydsl-kernel-profiling#8](https://github.com/jhinpan/flydsl-kernel-profiling/pull/8);
+before that, this was captured via a `--invocation` override.)
 
 **Discovered kernel:** `flash_attn_dualwave_swp_gfx950_kernel` — 2670 ISA instructions,
 100% source-mapped, **arch_vgpr 249 → only 4 waves/CU** (12.5% of peak).
 
-**Verdict (`REPORT.md`):** memory-bound, barrier-dominated (20% of 64.9% total stall).
+**Verdict (`REPORT.md`):** memory-bound, barrier-dominated (~20% of ~61% total stall).
 Ranked recommendations:
 
 | # | bubble | knob | evidence |
 |---|---|---|---|
 | 1 | occupancy | **raise occupancy by cutting register footprint** (async-copy / shrink tile; *not* `maxnreg`) | 4 waves/CU @ arch_vgpr 249 |
-| 2 | vmcnt | software-prefetch / double-buffer the global loads | `flash_attn_gfx950.py:192` |
-| 3 | barrier | relax / remove redundant dual-wave sync | `flash_attn_gfx950.py:192` |
+| 2–3 | barrier / vmcnt (near-tied) | relax redundant dual-wave sync · software-prefetch the global loads | `flash_attn_gfx950.py:192` |
 
 The root cause is the classic attention pathology: the kernel is register-pressure
 capped to 4 waves/CU, so it can't hide the memory and barrier latency that then show up

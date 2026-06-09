@@ -2,12 +2,12 @@
   "kernel": "flash_attn_dualwave_swp_gfx950_kernel_0",
   "dtype": "bf16",
   "dispatches": 6,
-  "time_s_per_call": 4.9151e-05,
+  "time_s_per_call": 4.9392e-05,
   "memory": {
     "l2_hit_rate": 78.1,
     "partial_32b_frac": 0.0,
-    "ea0_read_bytes": 76363456,
-    "achieved_hbm_gbs_rough": 258.9,
+    "ea0_read_bytes": 76365824,
+    "achieved_hbm_gbs_rough": 257.7,
     "peak_hbm_gbs": 8000.0,
     "calibrated": false,
     "note": "absolute BW is an EA0-channel lower bound; trust the ratios + bubble taxonomy"
@@ -36,15 +36,15 @@
     "note": "VGPR-based occupancy is in capture.json (exact); see report"
   },
   "counters_raw": {
-    "GRBM_GUI_ACTIVE": 6162278.0,
+    "GRBM_GUI_ACTIVE": 6212320.0,
     "SQ_WAVES": 6144.0,
-    "SQ_BUSY_CYCLES": 17605370.0,
+    "SQ_BUSY_CYCLES": 17651780.0,
     "SQ_INSTS_VALU": 22360320.0,
     "SQ_INSTS_MFMA": 3538944.0,
     "SQ_LDS_BANK_CONFLICT": 0.0,
-    "TCC_HIT_sum": 5639543.0,
-    "TCC_MISS_sum": 1577045.0,
-    "TCC_EA0_RDREQ_sum": 1193179.0,
+    "TCC_HIT_sum": 5634963.0,
+    "TCC_MISS_sum": 1577014.0,
+    "TCC_EA0_RDREQ_sum": 1193216.0,
     "TCC_EA0_RDREQ_32B_sum": 0.0
   }
 }

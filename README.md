@@ -98,10 +98,11 @@ bound flagged `calibrated: false` and **never used to decide the bound**.
 
 [`examples/`](examples/) holds real output bundles. The flagship is
 [`examples/flash_attn_fwd/`](examples/flash_attn_fwd/) — FlyDSL's dual-wave
-software-pipelined flash attention, the hardest operator: discovered live (the registry
-recipe was stale), `arch_vgpr 249 → 4 waves/CU`, diagnosed **occupancy-capped** with the
-root-cause fix ranked first (cut register footprint), traceable to `flash_attn_gfx950.py`.
-A full ATT trace ships with it — load it with `flyprof bubbles/map --bundle examples/flash_attn_fwd`.
+software-pipelined flash attention, the hardest operator: `arch_vgpr 249 → 4 waves/CU`,
+diagnosed **occupancy-capped** with the root-cause fix ranked first (cut register
+footprint), traceable to `flash_attn_gfx950.py`. A full ATT trace ships with it — load it
+with `flyprof bubbles/map --bundle examples/flash_attn_fwd`. (Profiling it found a stale
+recipe in the hub, fixed in [flydsl-kernel-profiling#8](https://github.com/jhinpan/flydsl-kernel-profiling/pull/8).)
 
 ## Companion skills (for agents)
 

@@ -1,6 +1,6 @@
 {
   "kernel": "flash_attn_dualwave_swp_gfx950_kernel_0",
-  "headline": "flash_attn_dualwave_swp_gfx950_kernel_0: memory-bound, barrier-dominated (20.08% of 64.9% total stall) -> Raise occupancy by cutting register footprint",
+  "headline": "flash_attn_dualwave_swp_gfx950_kernel_0: memory-bound, barrier-dominated (20.84% of 60.6% total stall) -> Raise occupancy by cutting register footprint",
   "bound_type": "memory",
   "optimal": false,
   "top_recommendation": {
