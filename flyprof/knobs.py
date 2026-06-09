@@ -39,6 +39,9 @@ class Signals:
     def mix(self, cls: str) -> float:
         return float(self.inst_mix.get(cls, 0.0))
 
+    def has_hotspot(self, cls: str) -> bool:
+        return any(h.get("class") == cls for h in self.hotspots)
+
     def evidence(self, cls: str, fired_field: str, fired_value) -> dict:
         """Top hotspot of a class -> the source line + waitcnt attribution."""
         hs = next((h for h in self.hotspots if h.get("class") == cls), None)
@@ -67,10 +70,13 @@ class Rule:
     confidence: str
     gate: Optional[set] = None   # bounds this rule is relevant for (None = any)
     priority: float = 1.0
+    weight: Optional[Callable[[Signals], float]] = None  # override ranking weight (for non-stall-class rules)
 
 
 def _bound_ok(rule: Rule, sig: Signals) -> bool:
-    if rule.gate is None or sig.bound is None:
+    # don't gate when the bound is unknown (no/ambiguous counters) — gating only
+    # applies when we actually know the regime, else we'd hide relevant rules.
+    if rule.gate is None or sig.bound is None or sig.bound == "unknown":
         return True
     return sig.bound in rule.gate
 
@@ -114,8 +120,10 @@ RULES: list[Rule] = [
     ),
     Rule(
         id="lds_bank_conflict", bubble_class="lds",
+        # fire only on positive evidence: the conflict counter crosses threshold, OR
+        # (no counter) a real ds_* hotspot dominates — never on a counter that read 0.
         when=lambda s: (s.lds_conflict_pct is not None and s.lds_conflict_pct > 5)
-                       or (s.cls_pct("lds") > 8),
+                       or (s.lds_conflict_pct is None and s.cls_pct("lds") > 8 and s.has_hotspot("lds")),
         fired_field="lds_conflict_pct",
         fired_value=lambda s: s.lds_conflict_pct if s.lds_conflict_pct is not None else s.cls_pct("lds"),
         knob="Remove LDS bank conflicts (XOR swizzle preferred)",
@@ -157,8 +165,11 @@ RULES: list[Rule] = [
             "tile_m/tile_k; @autotune Config(waves_per_eu=2). Do NOT force maxnreg to push accum_vgpr=0 "
             "(spills via v_accvgpr_read, ~4.5x regression).",
         code_change="move the A/B tile load through LDS via async copy to free the staging VGPRs, or reduce the tile",
-        expected="more resident waves to hide the exposed memory/LDS latency",
+        expected="more resident waves to hide the exposed memory/LDS latency — often the root cause when stalls "
+                 "are exposed at low occupancy",
         confidence="high", gate={"memory", "latency"}, priority=1.0,
+        # not a stall class: weight by the occupancy deficit (severe when waves/CU is far below 8)
+        weight=lambda s: (8 - min(s.occ_waves_per_cu or 8, 8)) / 8 * 50,
     ),
     Rule(
         id="vectorize_copy", bubble_class="vmem_load",
@@ -237,6 +248,7 @@ def recommend(sig: Signals) -> list[dict]:
         try:
             if rule.when(sig) and _bound_ok(rule, sig):
                 fv = rule.fired_value(sig)
+                weight = rule.weight(sig) if rule.weight else sig.cls_pct(rule.bubble_class) * rule.priority
                 recs.append({
                     "rule": rule.id,
                     "bubble_class": rule.bubble_class,
@@ -246,7 +258,7 @@ def recommend(sig: Signals) -> list[dict]:
                     "code_change": rule.code_change,
                     "expected": rule.expected,
                     "confidence": rule.confidence,
-                    "_weight": sig.cls_pct(rule.bubble_class) * rule.priority,
+                    "_weight": weight,
                 })
         except Exception:
             continue

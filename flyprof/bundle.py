@@ -32,7 +32,7 @@ def cmd_bundle(args, cfg) -> Result:
     (dest / "source").mkdir(parents=True, exist_ok=True)
 
     copied = {"att": [], "compute_viewer": [], "source": []}
-    # ATT dirs per tag
+    # ATT dirs per tag (+ the exact profiled source snapshots they carry)
     for tag, tinfo in (capture.get("tags") or {}).items():
         kept = tinfo.get("kept_dir")
         if not kept:
@@ -43,6 +43,12 @@ def cmd_bundle(args, cfg) -> Result:
             shutil.rmtree(dst, ignore_errors=True)
             shutil.copytree(src, dst)
             copied["att"].append(f"{tag}/{src.name}")
+            # the dispatch dir holds source_<n>_<name>.py — the actual code that was profiled
+            for sp in src.glob("source_*.py"):
+                tgt = dest / "source" / sp.name.split("_", 2)[-1]
+                if not tgt.exists():
+                    shutil.copy(sp, tgt)
+                    copied["source"].append(tgt.name)
     # compute-viewer support + counters
     for pat in ("*_out_results.json", "*_agent_info.csv", "counters.json"):
         for f in bundle.glob(pat):

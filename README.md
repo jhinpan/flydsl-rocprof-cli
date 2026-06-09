@@ -94,6 +94,15 @@ MFMA fraction) are reliable and drive the decisions. Absolute HBM bandwidth from
 needs per-XCD/channel normalization we don't fully reproduce, so it's reported as a lower
 bound flagged `calibrated: false` and **never used to decide the bound**.
 
+## Examples
+
+[`examples/`](examples/) holds real output bundles. The flagship is
+[`examples/flash_attn_fwd/`](examples/flash_attn_fwd/) — FlyDSL's dual-wave
+software-pipelined flash attention, the hardest operator: discovered live (the registry
+recipe was stale), `arch_vgpr 249 → 4 waves/CU`, diagnosed **occupancy-capped** with the
+root-cause fix ranked first (cut register footprint), traceable to `flash_attn_gfx950.py`.
+A full ATT trace ships with it — load it with `flyprof bubbles/map --bundle examples/flash_attn_fwd`.
+
 ## Companion skills (for agents)
 
 [`skills/`](skills/) holds the runbooks an agent follows — `flyprof-usage` (router) →

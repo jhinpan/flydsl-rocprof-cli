@@ -83,6 +83,9 @@ def build_parser() -> argparse.ArgumentParser:
     sp = add("capture", "rocprofv3 ATT (+optional PMC) capture for one kernel")
     sp.add_argument("kernel", help="kernel name (resolved via `list`/synthesize_recipe)")
     sp.add_argument("--shape", help="override shape; pins ROCDSL_*_SHAPES where known")
+    sp.add_argument("--invocation", default=None,
+                    help="override the recipe's run command (e.g. to pin a shape via the test's own "
+                         "args: 'python tests/kernels/test_flash_attn_fwd.py --batch 1 --seq_len 2048 ...')")
     sp.add_argument("--tag", choices=["small", "big", "both"], default="big")
     sp.add_argument("--with-pmc", action="store_true", help="also run a separate PMC counter pass")
     sp.add_argument("--iter-range", default=None, help="rocprofv3 kernel_iteration_range (auto if omitted)")
@@ -111,6 +114,7 @@ def build_parser() -> argparse.ArgumentParser:
     sp = add("run", "full pipeline on one kernel (doctor->...->report->bundle)")
     sp.add_argument("kernel", help="kernel name")
     sp.add_argument("--shape", default=None)
+    sp.add_argument("--invocation", default=None, help="override the recipe's run command (see `capture --invocation`)")
     sp.add_argument("--tag", choices=["small", "big", "both"], default="both")
     sp.add_argument("--skip-bundle", action="store_true", help="stop after report; don't write to examples/")
     return ap

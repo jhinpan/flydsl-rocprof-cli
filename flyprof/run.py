@@ -53,7 +53,8 @@ def cmd_run(args, cfg) -> Result:
 
         # 3. capture (ATT, both tags by default, + PMC pass)
         cap = capture_mod.cmd_capture(NS(kernel=args.kernel, shape=args.shape, tag=tag,
-                                         with_pmc=True, iter_range=None, timeout=1200), cfg)
+                                         with_pmc=True, iter_range=None, timeout=1200,
+                                         invocation=getattr(args, "invocation", None)), cfg)
         steps["capture"] = cap.data["kernel"]
         warnings += cap.warnings
 

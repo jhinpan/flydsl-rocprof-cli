@@ -1,0 +1,322 @@
+{
+  "kernel": "flash_attn_dualwave_swp_gfx950_kernel_0",
+  "recipe_kernel": "flash_attn_fwd",
+  "bound_type": "memory",
+  "headline": "flash_attn_dualwave_swp_gfx950_kernel_0: memory-bound, barrier-dominated (20.08% of 64.9% total stall) -> Raise occupancy by cutting register footprint",
+  "optimal": false,
+  "totals": {
+    "instructions": 2676,
+    "total_latency": 868044,
+    "total_stall": 562940,
+    "total_idle": 36500,
+    "hitcount": 65160,
+    "stall_pct": 64.9
+  },
+  "stall_taxonomy": {
+    "by_class": {
+      "barrier": {
+        "cycles": 113016,
+        "pct": 20.08,
+        "rank": 1,
+        "is_bubble": true
+      },
+      "vmem_store": {
+        "cycles": 107772,
+        "pct": 19.14,
+        "rank": 2,
+        "is_bubble": false
+      },
+      "valu": {
+        "cycles": 84896,
+        "pct": 15.08,
+        "rank": 3,
+        "is_bubble": false
+      },
+      "vmcnt": {
+        "cycles": 78856,
+        "pct": 14.01,
+        "rank": 4,
+        "is_bubble": true
+      },
+      "vmem_load": {
+        "cycles": 67636,
+        "pct": 12.01,
+        "rank": 5,
+        "is_bubble": false
+      },
+      "lds": {
+        "cycles": 61620,
+        "pct": 10.95,
+        "rank": 6,
+        "is_bubble": false
+      },
+      "mfma": {
+        "cycles": 21304,
+        "pct": 3.78,
+        "rank": 7,
+        "is_bubble": false
+      },
+      "salu": {
+        "cycles": 19052,
+        "pct": 3.38,
+        "rank": 8,
+        "is_bubble": false
+      },
+      "lgkmcnt": {
+        "cycles": 8660,
+        "pct": 1.54,
+        "rank": 9,
+        "is_bubble": true
+      },
+      "branch": {
+        "cycles": 96,
+        "pct": 0.02,
+        "rank": 10,
+        "is_bubble": false
+      },
+      "smem": {
+        "cycles": 32,
+        "pct": 0.01,
+        "rank": 11,
+        "is_bubble": false
+      }
+    }
+  },
+  "roofline": {
+    "dtype": "bf16",
+    "peak_mfma_gflops": 2306867.2,
+    "peak_valu_gflops": 72089.6,
+    "peak_hbm_gbs": 8000.0,
+    "ridge_ai_hbm": 288.36,
+    "bound": "unknown",
+    "bound_basis": "counters(reliable ratios)"
+  },
+  "occupancy": {
+    "from_capture_waves_per_cu": 4,
+    "arch_vgpr": 249,
+    "accum_vgpr": 0
+  },
+  "tile": {
+    "tile": {
+      "BM": 128,
+      "BN": 128,
+      "BK": 64,
+      "buffers": 2
+    },
+    "assumed_wg_size": 256,
+    "lds_bytes": 65536,
+    "lds_limit": 163840,
+    "lds_ok": true,
+    "lds_wgs_per_cu": 2,
+    "vgpr_per_thread_est": 112,
+    "vgpr_alloc": 112,
+    "waves_per_simd_by_vgpr": 4,
+    "waves_per_cu": 8,
+    "occupancy_pct": 25.0,
+    "binding_limiter": "LDS",
+    "ai_tile": 32.0,
+    "ridge_ai": 288.36,
+    "regime": "memory-bound",
+    "min_bk_to_cross_ridge": null,
+    "_score": 432.0
+  },
+  "recommendations": [
+    {
+      "rule": "occupancy_vgpr",
+      "bubble_class": "occupancy",
+      "evidence": {
+        "signal": "occupancy_waves_per_cu",
+        "value": 4,
+        "stall_pct_of_class": 0.0
+      },
+      "knob": "Raise occupancy by cutting register footprint",
+      "api": "use_async_copy=True -> rocdl.buffer_load_to_lds(...) (bypasses ~32 arch_vgpr of the A-tile); shrink tile_m/tile_k; @autotune Config(waves_per_eu=2). Do NOT force maxnreg to push accum_vgpr=0 (spills via v_accvgpr_read, ~4.5x regression).",
+      "code_change": "move the A/B tile load through LDS via async copy to free the staging VGPRs, or reduce the tile",
+      "expected": "more resident waves to hide the exposed memory/LDS latency \u2014 often the root cause when stalls are exposed at low occupancy",
+      "confidence": "high",
+      "rank": 1
+    },
+    {
+      "rule": "vmem_prefetch",
+      "bubble_class": "vmcnt",
+      "evidence": {
+        "signal": "vmcnt.pct",
+        "value": 14.01,
+        "stall_pct_of_class": 14.01,
+        "code_line": 120,
+        "source": "/sgl-workspace/FlyDSL-lab/kernels/flash_attn_gfx950.py:192",
+        "inst": "s_waitcnt vmcnt(2)",
+        "waits_on": [
+          {
+            "source": "/sgl-workspace/FlyDSL-lab/kernels/flash_attn_gfx950.py:192",
+            "inst": "buffer_load_dwordx4 v[6:9], v1, s[4:7], 0 offen"
+          },
+          {
+            "source": "/sgl-workspace/FlyDSL-lab/kernels/flash_attn_gfx950.py:192",
+            "inst": "buffer_load_dwordx4 v[2:5], v1, s[4:7], 0 offen offset:32"
+          },
+          {
+            "source": "/sgl-workspace/FlyDSL-lab/kernels/flash_attn_gfx950.py:192",
+            "inst": "buffer_load_dwordx4 v[54:57], v1, s[4:7], 0 offen offset:64"
+          }
+        ]
+      },
+      "knob": "Software-prefetch / double-buffer the global loads (loop-carried SSA)",
+      "api": "for-loop with fx.Index bounds + init=[...]; issue next-iter buffer_ops.buffer_load at loop top, consume the prior iter's data in the MMA/compute body",
+      "code_change": "convert `for i in range(N)` -> `for iv, st in range(fx.Index(0), fx.Index(N-1), fx.Index(1), init=[...])`; prefetch load[i+1] before using load[i]. Bounds MUST be fx.Index or the rewriter unrolls and drops init=.",
+      "expected": "overlaps VMEM latency with compute; drains the s_waitcnt vmcnt stall",
+      "confidence": "high",
+      "rank": 2
+    },
+    {
+      "rule": "barrier_relax",
+      "bubble_class": "barrier",
+      "evidence": {
+        "signal": "barrier.pct",
+        "value": 20.08,
+        "stall_pct_of_class": 20.08,
+        "code_line": 2567,
+        "source": "/sgl-workspace/FlyDSL-lab/kernels/flash_attn_gfx950.py:192",
+        "inst": "s_barrier"
+      },
+      "knob": "Relax / remove redundant synchronization",
+      "api": "drop a redundant gpu.barrier(); in ping-pong, barrier only the swapped LDS region; use rocdl.s_wait_dscnt(0) (gfx950) for intra-wave order; replace an LDS cross-wave reduce with gpu.ShuffleOp(v, off, 64, mode='xor') over [32,16,8,4,2,1]",
+      "code_change": "remove barriers that don't guard a real cross-wave LDS dependency; prefer DPP/shuffle reduce",
+      "expected": "cuts the s_barrier stall where waves wait on each other unnecessarily",
+      "confidence": "medium",
+      "rank": 3
+    }
+  ],
+  "evidence_hotspots": [
+    {
+      "code_line": 120,
+      "addr": "0x1abc",
+      "inst": "s_waitcnt vmcnt(2)",
+      "class": "vmcnt",
+      "source": "/sgl-workspace/FlyDSL-lab/kernels/flash_attn_gfx950.py:192",
+      "hit": 24,
+      "latency": 34792,
+      "stall": 34792,
+      "idle": 0,
+      "stall_pct": 100.0,
+      "waitcnt_sources": [
+        {
+          "code_line": 75,
+          "inst": "buffer_load_dwordx4 v[6:9], v1, s[4:7], 0 offen",
+          "source": "/sgl-workspace/FlyDSL-lab/kernels/flash_attn_gfx950.py:192"
+        },
+        {
+          "code_line": 76,
+          "inst": "buffer_load_dwordx4 v[2:5], v1, s[4:7], 0 offen offset:32",
+          "source": "/sgl-workspace/FlyDSL-lab/kernels/flash_attn_gfx950.py:192"
+        },
+        {
+          "code_line": 77,
+          "inst": "buffer_load_dwordx4 v[54:57], v1, s[4:7], 0 offen offset:64",
+          "source": "/sgl-workspace/FlyDSL-lab/kernels/flash_attn_gfx950.py:192"
+        },
+        {
+          "code_line": 78,
+          "inst": "buffer_load_dwordx4 v[50:53], v1, s[4:7], 0 offen offset:96",
+          "source": "/sgl-workspace/FlyDSL-lab/kernels/flash_attn_gfx950.py:192"
+        },
+        {
+          "code_line": 79,
+          "inst": "buffer_load_dwordx4 v[46:49], v1, s[4:7], 0 offen offset:128",
+          "source": "/sgl-workspace/FlyDSL-lab/kernels/flash_attn_gfx950.py:192"
+        },
+        {
+          "code_line": 80,
+          "inst": "buffer_load_dwordx4 v[42:45], v1, s[4:7], 0 offen offset:160",
+          "source": "/sgl-workspace/FlyDSL-lab/kernels/flash_attn_gfx950.py:192"
+        },
+        {
+          "code_line": 81,
+          "inst": "buffer_load_dwordx4 v[38:41], v1, s[4:7], 0 offen offset:192",
+          "source": "/sgl-workspace/FlyDSL-lab/kernels/flash_attn_gfx950.py:192"
+        },
+        {
+          "code_line": 82,
+          "inst": "buffer_load_dwordx4 v[34:37], v1, s[4:7], 0 offen offset:224",
+          "source": "/sgl-workspace/FlyDSL-lab/kernels/flash_attn_gfx950.py:192"
+        },
+        {
+          "code_line": 87,
+          "inst": "buffer_load_dwordx4 v211, s[12:15], s4 offen lds",
+          "source": "/sgl-workspace/FlyDSL-lab/kernels/flash_attn_gfx950.py:295"
+        },
+        {
+          "code_line": 91,
+          "inst": "buffer_load_dwordx4 v213, s[12:15], s4 offen lds",
+          "source": "/sgl-workspace/FlyDSL-lab/kernels/flash_attn_gfx950.py:295"
+        }
+      ]
+    },
+    {
+      "code_line": 2630,
+      "addr": "0x5828",
+      "inst": "buffer_store_dwordx2 v[32:33], v46, s[0:3], 0 offen",
+      "class": "vmem_store",
+      "source": "/sgl-workspace/FlyDSL-lab/kernels/flash_attn_gfx950.py:300",
+      "hit": 24,
+      "latency": 31552,
+      "stall": 31456,
+      "idle": 184,
+      "stall_pct": 99.7
+    },
+    {
+      "code_line": 69,
+      "addr": "0x1960",
+      "inst": "s_waitcnt vmcnt(0) expcnt(0) lgkmcnt(0)",
+      "class": "vmcnt",
+      "source": "/sgl-workspace/FlyDSL-lab/kernels/flash_attn_gfx950.py:192",
+      "hit": 24,
+      "latency": 26336,
+      "stall": 26336,
+      "idle": 0,
+      "stall_pct": 100.0,
+      "waitcnt_sources": [
+        {
+          "code_line": 45,
+          "inst": "buffer_load_dwordx4 v211, s[12:15], 0 offen lds",
+          "source": "/sgl-workspace/FlyDSL-lab/kernels/flash_attn_gfx950.py:295"
+        },
+        {
+          "code_line": 50,
+          "inst": "buffer_load_dwordx4 v213, s[12:15], 0 offen lds",
+          "source": "/sgl-workspace/FlyDSL-lab/kernels/flash_attn_gfx950.py:295"
+        }
+      ]
+    },
+    {
+      "code_line": 75,
+      "addr": "0x1984",
+      "inst": "buffer_load_dwordx4 v[6:9], v1, s[4:7], 0 offen",
+      "class": "vmem_load",
+      "source": "/sgl-workspace/FlyDSL-lab/kernels/flash_attn_gfx950.py:192",
+      "hit": 24,
+      "latency": 24748,
+      "stall": 24628,
+      "idle": 192,
+      "stall_pct": 99.5
+    },
+    {
+      "code_line": 2567,
+      "addr": "0x5660",
+      "inst": "s_barrier",
+      "class": "barrier",
+      "source": "/sgl-workspace/FlyDSL-lab/kernels/flash_attn_gfx950.py:192",
+      "hit": 24,
+      "latency": 14564,
+      "stall": 14564,
+      "idle": 0,
+      "stall_pct": 100.0
+    }
+  ],
+  "provenance": {
+    "arch": "gfx950",
+    "rocprofv3": "1.1.0",
+    "date": "2026-06-09",
+    "avg_ns": 49151.43617
+  }
+}

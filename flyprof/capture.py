@@ -267,6 +267,8 @@ def cmd_capture(args, cfg) -> Result:
     cfg.check_rocprofv3()
     cfg.check_build_tree()
     recipe = manifest.get_recipe(args.kernel, cfg)
+    if getattr(args, "invocation", None):
+        recipe = {**recipe, "invocation": args.invocation, "recipe_source": "invocation-override"}
     cfg.ensure_bundle(args.kernel)
 
     tags = ["small", "big"] if args.tag == "both" else [args.tag]
@@ -300,6 +302,7 @@ def cmd_capture(args, cfg) -> Result:
         "recipe_kernel": args.kernel,          # user-facing name (for recipe resolution / re-runs)
         "match_confidence": chosen.get("confidence"),
         "recipe_source": recipe.get("recipe_source"),
+        "invocation": recipe.get("invocation"),   # so counters reuses the same (possibly pinned) run
         "calls": chosen["calls"], "avg_ns": chosen.get("avg_ns"), "total_ns": chosen.get("total_ns"),
         "iter_range": iters,
         "tags": {t: {k: v for k, v in r.items() if k != "dispatch_inventory"} for t, r in per_tag.items()},

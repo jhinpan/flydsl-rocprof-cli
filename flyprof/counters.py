@@ -207,6 +207,8 @@ def cmd_counters(args, cfg) -> Result:
         pmc_dir = str(cfg.bundle / "pmc")
     else:
         recipe = manifest.get_recipe(recipe_name, cfg)
+        if cap and cap.get("invocation"):
+            recipe = {**recipe, "invocation": cap["invocation"]}   # reuse the pinned run
         pmc_dir = capture_pmc(recipe, cfg, filter_name, shape, args.timeout)
 
     agg, ndisp = aggregate(pmc_dir, filter_name)

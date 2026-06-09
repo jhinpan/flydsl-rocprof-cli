@@ -1,0 +1,21 @@
+{
+  "kernel": "flash_attn_dualwave_swp_gfx950_kernel_0",
+  "headline": "flash_attn_dualwave_swp_gfx950_kernel_0: memory-bound, barrier-dominated (20.08% of 64.9% total stall) -> Raise occupancy by cutting register footprint",
+  "bound_type": "memory",
+  "optimal": false,
+  "top_recommendation": {
+    "rule": "occupancy_vgpr",
+    "bubble_class": "occupancy",
+    "evidence": {
+      "signal": "occupancy_waves_per_cu",
+      "value": 4,
+      "stall_pct_of_class": 0.0
+    },
+    "knob": "Raise occupancy by cutting register footprint",
+    "api": "use_async_copy=True -> rocdl.buffer_load_to_lds(...) (bypasses ~32 arch_vgpr of the A-tile); shrink tile_m/tile_k; @autotune Config(waves_per_eu=2). Do NOT force maxnreg to push accum_vgpr=0 (spills via v_accvgpr_read, ~4.5x regression).",
+    "code_change": "move the A/B tile load through LDS via async copy to free the staging VGPRs, or reduce the tile",
+    "expected": "more resident waves to hide the exposed memory/LDS latency \u2014 often the root cause when stalls are exposed at low occupancy",
+    "confidence": "high",
+    "rank": 1
+  }
+}

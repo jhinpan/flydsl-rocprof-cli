@@ -49,6 +49,27 @@ def test_compute_gate_blocks_tile_growth_rules():
     assert all(r["rule"] != "vmem_prefetch" for r in recs)     # gated out on compute-bound
 
 
+def test_unknown_bound_surfaces_occupancy_and_skips_zero_lds():
+    # Regression (flash-attn): counters bound == "unknown" must NOT gate out relevant
+    # rules; a severe occupancy deficit should rank first; a 0-reading LDS-conflict
+    # counter must NOT produce an (unsourced) swizzle recommendation.
+    bubbles = {"stall_taxonomy": {"by_class": {
+        "barrier": {"pct": 20.0, "rank": 1, "is_bubble": True},
+        "vmcnt": {"pct": 14.0, "rank": 2, "is_bubble": True},
+        "lds": {"pct": 12.0, "rank": 3, "is_bubble": False}}},  # high lds *stall* but no conflict
+        "inst_mix": {}, "hotspots": [{"class": "barrier", "source": "fa.py:192"},
+                                     {"class": "vmcnt", "source": "fa.py:192"}]}  # no lds hotspot
+    counters = {"roofline": {"bound": "unknown"}, "memory": {},
+                "compute": {"mfma_inst_frac": 0.2}, "lds": {"bank_conflict_pct": 0.0}}
+    capture = {"tags": {"big": {"occupancy_waves_per_cu": 4, "arch_vgpr": 245}}}
+    sig = knobs.build_signals(bubbles, counters, capture, "big")
+    recs = knobs.recommend(sig)
+    rules = [r["rule"] for r in recs]
+    assert "occupancy_vgpr" in rules                  # unknown bound did not gate it out
+    assert recs[0]["rule"] == "occupancy_vgpr"        # occ=4/8 is severe -> ranks first
+    assert "lds_bank_conflict" not in rules           # 0 conflict counter -> no false swizzle rec
+
+
 def test_already_optimal_emits_no_rec():
     bubbles = _memory_bound_bubbles()
     sig = knobs.build_signals(bubbles, _memory_counters(), None)
