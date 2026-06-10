@@ -25,3 +25,5 @@ line-length = 120
 
 [tool.ruff]
 line-length = 120
+# tests/fixtures holds rocprofv3-captured kernel sources (data, not project code)
+extend-exclude = ["tests/fixtures"]

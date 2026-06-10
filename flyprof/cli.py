@@ -35,6 +35,9 @@ DISPATCH = {
     "report": "flyprof.report:cmd_report",
     "bundle": "flyprof.bundle:cmd_bundle",
     "run": "flyprof.run:cmd_run",
+    "diff": "flyprof.diff:cmd_diff",
+    "wiki": "flyprof.wiki:cmd_wiki",
+    "optimize": "flyprof.optimize:cmd_optimize",
 }
 
 
@@ -117,6 +120,24 @@ def build_parser() -> argparse.ArgumentParser:
     sp.add_argument("--invocation", default=None, help="override the recipe's run command (see `capture --invocation`)")
     sp.add_argument("--tag", choices=["small", "big", "both"], default="both")
     sp.add_argument("--skip-bundle", action="store_true", help="stop after report; don't write to examples/")
+
+    sp = add("diff", "before/after report.json deltas: did the targeted bubble shrink?")
+    sp.add_argument("--before", help="bundle dir with the BEFORE report.json")
+    sp.add_argument("--after", help="bundle dir with the AFTER report.json")
+
+    sp = add("wiki", "bubble_class -> ROCmKernelWiki technique + implemented_by PR lineage")
+    sp.add_argument("bubble_class", help="rank-1 bubble class from report.json (e.g. barrier, vmcnt, occupancy)")
+    sp.add_argument("--kernel", default="flash attention", help="kernel keywords for the wiki query")
+    sp.add_argument("--limit", type=int, default=5, help="max wiki pages returned")
+    sp.add_argument("--wiki-root", default=None, help="ROCmKernelWiki checkout (default: $FLYPROF_WIKI_ROOT)")
+    sp.add_argument("--timeout", type=int, default=60)
+
+    sp = add("optimize", "one humanize round: rank-1 recommendation -> wiki prior art -> attempt skeleton")
+    sp.add_argument("--attempts", default=None,
+                    help="attempt ledger (default: runs/flash_attn_humanize/attempts.jsonl)")
+    sp.add_argument("--limit", type=int, default=5, help="max wiki pages returned")
+    sp.add_argument("--wiki-root", default=None, help="ROCmKernelWiki checkout (default: $FLYPROF_WIKI_ROOT)")
+    sp.add_argument("--timeout", type=int, default=60)
     return ap
 
 

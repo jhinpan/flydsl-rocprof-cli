@@ -45,14 +45,17 @@ ERROR_CODES: dict[str, tuple[int, str]] = {
     # UNAVAILABLE class — STOP, do not retry
     "ROCPROFV3_MISSING":     (EXIT_UNAVAILABLE, "install ROCm / put rocprofv3 on PATH; do NOT retry"),
     "NO_GPU":                (EXIT_UNAVAILABLE, "no GPU visible (rocminfo/amd-smi); do NOT retry"),
+    "WIKI_MISSING":          (EXIT_UNAVAILABLE, "clone github.com/jhinpan/ROCmKernelWiki or set FLYPROF_WIKI_ROOT"),
     # CONFIG class — fix inputs / run a prerequisite
     "BUILD_TREE_MISSING":    (EXIT_CONFIG, "point --worktree at a built FlyDSL checkout (needs build-fly/python_packages)"),
     "BAD_ARGS":              (EXIT_CONFIG, "check the argument format (e.g. --shape M,N,dtype)"),
     "MISSING_PREREQ":        (EXIT_CONFIG, "a prerequisite command has not been run for this bundle"),
     # TEMPFAIL — retry is sane
     "CAPTURE_TIMEOUT":       (EXIT_TIMEOUT, "retry once with a larger --timeout or a smaller shape"),
+    "WIKI_TIMEOUT":          (EXIT_TIMEOUT, "retry once with a larger --timeout"),
     # INTERNAL
     "NOT_IMPLEMENTED":       (EXIT_INTERNAL, "this subcommand is not built yet"),
+    "WIKI_QUERY_FAILED":     (EXIT_INTERNAL, "run scripts/query.py by hand against the wiki checkout"),
     "INTERNAL":              (EXIT_INTERNAL, "unexpected internal error; see error.message"),
 }
 
